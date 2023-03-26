@@ -1,10 +1,10 @@
 import React from 'react';
-import Container from './ContainerBox';
+import TodoList from './TodoList';
 
 export default function Wrap() {
     return (
         <div className="w-screen h-screen bg-gray-300 flex items-center justify-center">
-            <Container></Container>
+            <TodoList></TodoList>
         </div>
     );
 }
