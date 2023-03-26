@@ -14,7 +14,7 @@ export default function AddTodo({onAdd}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         // text가 비어있으면 등록x -- 공백이 있으면 공백을 제거 후 todo에 등록
-        if(text.trim().length !== 0) onAdd({id : uuidv4(), todo : text, status: 'active'})
+        if(text.trim().length !== 0) onAdd({id : uuidv4(), todo : text, status: 'Active'})
         setText('');
     }
 
