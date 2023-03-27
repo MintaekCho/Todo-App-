@@ -7,7 +7,7 @@ export default function Header({ filters, filter, onFilterChange }) {
 
   return (
     <header className="w-full h-[15%] bg-gray-400 dark:bg-slate-900 rounded-t-[inherit] border-b-2 border-gray-300 flex items-center justify-between p-6 ">
-      <button className="text-[2rem] text-gray-100" onClick={toggleDarkMode}>
+      <button className="text-[2rem] text-gray-100 hover:text-[#f16203]" onClick={toggleDarkMode}>
         {darkMode ? <BsMoonFill /> : <TiAdjustBrightness />}
       </button>
       <ul className="flex items-center justify-center">

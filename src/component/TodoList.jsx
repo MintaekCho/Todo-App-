@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DarkModeProvider } from "../context/DarkModeContext";
 import AddTodo from "./AddTodo";
 import Header from "./Header";
@@ -10,7 +10,7 @@ export default function TodoList() {
   const filters = ["All", "Active", "Completed"];
 
   // todoList 상태
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(readTodo);
 
   // 현재 필터 상태
   const [filter, setFilter] = useState(filters[0]);
@@ -27,6 +27,10 @@ export default function TodoList() {
   // todo 삭제버튼 클릭 시 todo상태에서 해당 todo 삭제
   const handleDelete = (deleted) =>
     setTodos(todos.filter((t) => t.id !== deleted.id));
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos])
 
   //todo 상태에 따른 필터링 데이터
   const filtered = getFilterTodos(todos, filter);
@@ -52,7 +56,7 @@ export default function TodoList() {
           </ul>
         </main>
         <footer className="w-full h-[15%] bg-gray-400 dark:bg-slate-800 rounded-b-[inherit] border-t-2 border-gray-300 flex justify-center items-center">
-          <AddTodo onAdd={handleAdd}></AddTodo>
+          <AddTodo onAdd={handleAdd} todo={todos}></AddTodo>
         </footer>
       </section>
     </DarkModeProvider>
@@ -65,4 +69,9 @@ function getFilterTodos(todos, filter) {
     return todos;
   }
   return todos.filter((t) => t.status === filter);
+}
+
+function readTodo() {
+  const todos = localStorage.getItem('todos');
+  return todos ? JSON.parse(todos) : []; 
 }

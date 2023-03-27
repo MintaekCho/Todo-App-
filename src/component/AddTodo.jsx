@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import {v4 as uuidv4} from 'uuid'
 
-export default function AddTodo({onAdd}) {
+export default function AddTodo({onAdd, todo}) {
 
     // input창 상태관리 - input에 text가 입력되면 onchange를 통해 setText를 콜백함수로 등록하여 상태를 관리한다.
     const [text, setText] = useState('')
@@ -36,4 +36,3 @@ export default function AddTodo({onAdd}) {
         </form>
     );
 }
-
