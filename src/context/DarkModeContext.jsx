@@ -11,18 +11,18 @@ export function DarkModeProvider({ children }) {
     if (darkMode) {
       localStorage.removeItem("theme");
       document.documentElement.classList.remove("dark");
-      setDarkMode(!darkMode);
+      setDarkMode((darkmode) => !darkMode);
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      setDarkMode(!darkMode);
+      setDarkMode((darkmode) => !darkMode);
     }
   };
 
   useEffect(() => {
     if (localStorage.getItem("theme") === "dark") {
       document.documentElement.classList.add("dark");
-      setDarkMode(!darkMode);
+      setDarkMode((darkmode) => !darkMode);
     }
   }, []);
 
