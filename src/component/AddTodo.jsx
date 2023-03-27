@@ -29,7 +29,7 @@ export default function AddTodo({onAdd}) {
             className="w-4/5 h-full p-4 rounded-l-[inherit]"
           />
           <button
-            className="w-1/5 h-full bg-green-700 rounded-r-[inherit] text-white text-xl font-bold"
+            className="w-1/5 h-full bg-gray-600 rounded-r-[inherit] text-white text-xl font-bold hover:brightness-125"
           >
             Add
           </button>
