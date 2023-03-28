@@ -20,12 +20,13 @@ export default function Todo({ todo, onUpdate, onDelete }) {
         <input
           className="w-[1.5rem]"
           type="checkbox"
+          id={todo.id}
           checked={todo.status === "Completed"}
           onChange={handleChange}
         />
         <label
           className="w-[70%] inline-block font-bold text-black dark:text-white ml-2 text-[1.5rem]"
-          htmlFor="checkbox"
+          htmlFor={todo.id}
         >
           {todo.todo}
         </label>
