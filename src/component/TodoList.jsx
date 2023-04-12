@@ -4,7 +4,6 @@ import AddTodo from "./AddTodo";
 import Header from "./Header";
 import Todo from "./Todo";
 
-
 export default function TodoList() {
   // 필터 목록
   const filters = ["All", "Active", "Completed"];
@@ -14,7 +13,6 @@ export default function TodoList() {
 
   // 현재 필터 상태
   const [filter, setFilter] = useState(filters[0]);
-
 
   // form에서 todo 추가시 콜백함수
   const handleAdd = (todo) => setTodos([...todos, todo]);
@@ -29,12 +27,11 @@ export default function TodoList() {
     setTodos(todos.filter((t) => t.id !== deleted.id));
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos])
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   //todo 상태에 따른 필터링 데이터
   const filtered = getFilterTodos(todos, filter);
-
 
   return (
     <DarkModeProvider>
@@ -72,6 +69,6 @@ function getFilterTodos(todos, filter) {
 }
 
 function readTodo() {
-  const todos = localStorage.getItem('todos');
-  return todos ? JSON.parse(todos) : []; 
+  const todos = localStorage.getItem("todos");
+  return todos ? JSON.parse(todos) : [];
 }
